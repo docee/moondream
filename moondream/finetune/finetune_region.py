@@ -168,7 +168,7 @@ def main():
 
     # Add path to annotation file and img dir
     dataset = CocoDataset(
-        annotation_file="/kaggle/input/bluejay-bbox-ataset/datasets.json",
+        annotation_file="/kaggle/input/bluejay-bbox-dataset/datasets.json",
         img_dir="/kaggle/input/bluejay-bbox-dataset/images/",
     )
 
