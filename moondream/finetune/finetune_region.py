@@ -168,8 +168,8 @@ def main():
 
     # Add path to annotation file and img dir
     dataset = CocoDataset(
-        annotation_file="/kaggle/input/bluejay_bbox_dataset/datasets.json",
-        img_dir="/kaggle/input/bluejay_bbox_dataset/images/",
+        annotation_file="/kaggle/input/bluejay-bbox-ataset/datasets.json",
+        img_dir="/kaggle/input/bluejay-bbox-dataset/images/",
     )
 
     total_steps = EPOCHS * len(dataset) // GRAD_ACCUM_STEPS
