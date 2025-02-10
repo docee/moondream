@@ -22,7 +22,7 @@ from ..torch.region import (
 )
 
 # This is a intended to be a basic starting point. Your optimal hyperparams and data may be different.
-MODEL_PATH = ""
+MODEL_PATH = "/kaggle/working/models/model.safetensors"
 # Your data should end with the eos token. Here is the textual representation.
 ANSWER_EOS = "<|endoftext|>"
 LR = 5e-5
@@ -168,8 +168,8 @@ def main():
 
     # Add path to annotation file and img dir
     dataset = CocoDataset(
-        annotation_file="",
-        img_dir="",
+        annotation_file="/kaggle/input/bluejay_bbox_dataset/datasets.json",
+        img_dir="/kaggle/input/bluejay_bbox_dataset/images/",
     )
 
     total_steps = EPOCHS * len(dataset) // GRAD_ACCUM_STEPS
@@ -189,7 +189,7 @@ def main():
                 )
 
                 # Basic prompt to detect a crack in the railway tracks
-                instruction = "\n\nDetect: crack\n\n"
+                instruction = "\n\nDetect: bird\n\n"
                 instruction_tokens = model.tokenizer.encode(instruction).ids
                 instruction_emb = text_encoder(
                     torch.tensor([[instruction_tokens]], device=model.device),
@@ -264,7 +264,7 @@ def main():
     # Add save path: ex. home/model.safetensors
     save_file(
         model.state_dict(),
-        "",
+        "/kaggle/working/models/moondream_bird_bbox_ft.safetensors",
     )
 
 
